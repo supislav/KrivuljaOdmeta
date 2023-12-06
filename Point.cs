@@ -7,29 +7,25 @@ using System.Threading.Tasks;
 
 namespace KrivuljaOdmeta
 {
-    internal class Point
+    public class Point
     {
-        public double X { get; set; }
-        public double Y { get; set; }
+        public double X1 { get; set; }
+        public double Y1 { get; set; }
 
-        public Point(double x, double y)
+        public Point(double x1, double y1)
         {
-            X = x;
-            Y = y;
+            X1 = x1;
+            Y1 = y1;
         }
 
-        public static Point[] points { get; set; }
-
-        private Point Calculate(double t)
+        public static Point Calculate(double t)
         {
             double r1 = 0.515; //[m] 
             double n = 18.5; //[1/min]
             double v1 = (r1 * Math.PI * n) / (30 * 60); //[m/s]
-            double x1 = t * v1;
-            double y1 = -0.5 * 9.81 * Math.Pow(t, 2);
+            double x1 = t * v1; //[m]
+            double y1 = -0.5 * 9.81 * Math.Pow(t, 2); //[m]
             return new Point(x1, y1);
         }
-
-
     }
 }
