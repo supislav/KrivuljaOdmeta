@@ -33,7 +33,7 @@ namespace KrivuljaOdmeta
             double time = _startTime; //Čas
 
             Series series1 = new Series(); // Nova črta
-            series1.ChartType = SeriesChartType.Spline; //Linijski graf
+            series1.ChartType = SeriesChartType.Spline; // Chart type
             series1.BorderWidth = 5;
 
             // Računanje in risanje krivulje
@@ -41,18 +41,14 @@ namespace KrivuljaOdmeta
             {
                 // Izračun točke
                 Point point = Point.Calculate(time);
-
                 // Risanje
                 series1.Points.AddXY(point.X1, point.Y1);
-
                 // Prikaz v DGV
                 dgv.Rows.Add(time, point.X1, point.Y1);
                 time = time += _increment; // Inkrementacija časa
             }
-
             // Dodajanje serije točk na graf
             chart.Series.Add(series1);
-
         }
 
         #region SETTINGS AND TOOLS
