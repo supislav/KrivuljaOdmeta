@@ -24,11 +24,18 @@ namespace KrivuljaOdmeta
         {
             double r1 = 0.515; //[m] 
             double r2 = 0.795; //[m]
+
             double n = 18.5; //[1/min]
-            double v1 = (r1 * Math.PI * n) / (30 * 60); //[m/s]
-            double v2 = (r2 * Math.PI * n) / (30 * 60); //[m/s]
-            double x1 = t * v1; //[m]
-            double x2 = t * v2; //[m]
+
+            double gama1 = (r1 * Math.Pow(Math.PI, 2) * Math.Pow(n, 2)) / (Math.Pow(30, 2) * 9.81);
+            double gama2 = (r2 * Math.Pow(Math.PI, 2) * Math.Pow(n, 2)) / (Math.Pow(30, 2) * 9.81);
+
+            double v1 = (r1 * Math.PI * n) / (30); //[m/s]
+            double v2 = (r2 * Math.PI * n) / (30); //[m/s]
+
+            double x1 = t * v1 * Math.Sin(gama1); //[m]
+            double x2 = t * v2 * Math.Sin(gama2); //[m]
+
             double y1 = -0.5 * 9.81 * Math.Pow(t, 2); //[m]
             return new Point(x1, x2, y1);
         }

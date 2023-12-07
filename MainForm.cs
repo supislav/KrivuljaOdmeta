@@ -81,7 +81,7 @@ namespace KrivuljaOdmeta
             // DGV brez spreminjanja stolcev
             dgv.AllowUserToOrderColumns = false;
             // Dve decimalki
-            for (int i = 0; i <= 4; i++) dgv.Columns[i].DefaultCellStyle.Format = "0.###";
+            for (int i = 0; i <= 4; i++) dgv.Columns[i].DefaultCellStyle.Format = "0.#####";
             // DGV Row Headers
             dgv.RowHeadersVisible = true;
             dgv.RowPostPaint += Dgv_RowPostPaint;
